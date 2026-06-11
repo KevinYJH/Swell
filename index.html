@@ -628,7 +628,34 @@
       border-color: var(--green);
     }
 
+    .complete-actions {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .save-feeling-btn {
+      flex: 1;
+      padding-left: 16px;
+      padding-right: 16px;
+      white-space: nowrap;
+    }
+
+    .complete-actions .btn-primary {
+      flex: 2;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
     /* ========== 响应式 ========== */
+    @media (max-width: 600px) {
+      #page-qa {
+        justify-content: space-evenly;
+        padding-top: 0;
+      }
+    }
+
     @media (max-width: 400px) {
       .home-title {
         font-size: 42px;
@@ -844,9 +871,9 @@
 
       <textarea class="feeling-input" id="feelingInput" rows="3" placeholder="记录下此刻的感受（可选）..."></textarea>
 
-      <div style="display:flex;gap:12px;width:100%;max-width:400px;">
-        <button class="btn-secondary" style="flex:1;" onclick="saveFeeling()">保存感受</button>
-        <button class="btn-primary" style="flex:2;" onclick="restartApp()">重新开始</button>
+      <div class="complete-actions">
+        <button class="btn-secondary save-feeling-btn" onclick="saveFeeling()">保存感受</button>
+        <button class="btn-primary" onclick="restartApp()">重新开始</button>
       </div>
     </div>
 

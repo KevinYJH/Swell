@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>阿伦36问 - 让彼此更靠近</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #F5F0E8;
+      --bg-warm: #EDE8DE;
+      --green: #7A9E7E;
+      --green-light: #E8F0E9;
+      --green-dark: #5C7A5F;
+      --text-primary: #3D3D3D;
+      --text-secondary: #8B8B8B;
+      --text-muted: #A8A8A8;
+      --white: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --border: rgba(122, 158, 126, 0.15);
+    }
+
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.5s ease-out;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ========== 首页 ========== */
+    #page-home {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .home-header {
+      margin-bottom: 32px;
+    }
+
+    .home-title {
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .home-title span {
+      display: block;
+      font-size: 22px;
+      color: var(--green);
+      font-weight: 500;
+      margin-top: 8px;
+      letter-spacing: 4px;
+    }
+
+    .home-subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 360px;
+      margin: 0 auto 32px;
+    }
+
+    .home-instruction {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      text-align: left;
+    }
+
+    .home-instruction h3 {
+      font-size: 15px;
+      color: var(--green);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .home-instruction ol {
+      padding-left: 18px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 2;
+    }
+
+    .home-instruction li {
+      margin-bottom: 4px;
+    }
+
+    .home-footer-note {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px 24px;
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      text-align: left;
+    }
+
+    .home-footer-note h3 {
+      font-size: 14px;
+      color: var(--green);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .home-footer-note ol {
+      padding-left: 16px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+
+    .home-footer-note li {
+      margin-bottom: 2px;
+    }
+
+    .input-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .input-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text-primary);
+      background: var(--bg);
+      transition: border-color 0.3s;
+      outline: none;
+    }
+
+    .input-group input:focus {
+      border-color: var(--green);
+    }
+
+    .input-group input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      padding: 14px 48px;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 16px rgba(122, 158, 126, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-full {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* ========== 组引导页 ========== */
+    .level-intro-page {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .level-intro-emoji {
+      font-size: 64px;
+      margin-bottom: 24px;
+    }
+
+    .level-intro-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+    }
+
+    .level-intro-subtitle {
+      font-size: 16px;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 32px;
+    }
+
+    .level-intro-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 320px;
+      margin: 0 auto 40px;
+    }
+
+    .level-intro-count {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 32px;
+    }
+
+    /* ========== 答题页 ========== */
+    #page-qa {
+      padding-top: 12px;
+    }
+
+    .qa-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    .qa-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qa-counter {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 15px;
+    }
+
+    .qa-group-tag {
+      background: var(--green-light);
+      color: var(--green);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .qa-header-right {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .progress-line {
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .progress-line-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    .status-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .status-pill.active {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .status-pill.waiting {
+      background: var(--bg-warm);
+      color: var(--text-muted);
+    }
+
+    .status-emoji {
+      font-size: 16px;
+    }
+
+    /* 问题卡片 - 修复：紧凑尺寸 */
+    .question-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 32px 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 160px;
+    }
+
+    .question-text {
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--text-primary);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .qa-hint {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .qa-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* ========== 过渡页 ========== */
+    #page-transition {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .transition-icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+    }
+
+    .transition-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .transition-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 320px;
+      margin: 0 auto 40px;
+    }
+
+    .transition-tips {
+      background: var(--green-light);
+      border-radius: 16px;
+      padding: 20px 24px;
+      max-width: 340px;
+      margin: 0 auto 32px;
+      text-align: left;
+    }
+
+    .transition-tips h4 {
+      font-size: 14px;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .transition-tips p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* ========== 倒计时页 ========== */
+    #page-timer {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .timer-label {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .timer-display {
+      font-size: 80px;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--text-primary);
+      margin: 20px 0;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+
+    .timer-progress-ring {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 32px;
+      position: relative;
+    }
+
+    .timer-progress-ring svg {
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+
+    .timer-progress-ring circle {
+      fill: transparent;
+      stroke-width: 6;
+    }
+
+    .timer-progress-ring .bg {
+      stroke: var(--border);
+    }
+
+    .timer-progress-ring .fill {
+      stroke: var(--green);
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s linear;
+    }
+
+    .timer-prompt {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      min-height: 26px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    .timer-controls {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      padding: 10px 28px;
+      font-size: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* ========== 完成页 ========== */
+    #page-complete {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .complete-icon {
+      font-size: 56px;
+      margin-bottom: 20px;
+    }
+
+    .complete-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .complete-subtitle {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+
+    .stat-icon {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .quote-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      text-align: left;
+      border-left: 3px solid var(--green);
+    }
+
+    .quote-text {
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .quote-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .feeling-input {
+      width: 100%;
+      max-width: 400px;
+      padding: 14px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text-primary);
+      background: var(--card-bg);
+      resize: none;
+      outline: none;
+      margin-bottom: 16px;
+    }
+
+    .feeling-input:focus {
+      border-color: var(--green);
+    }
+
+    /* ========== 响应式 ========== */
+    @media (max-width: 400px) {
+      .home-title {
+        font-size: 42px;
+      }
+      .home-title span {
+        font-size: 18px;
+      }
+      .timer-display {
+        font-size: 64px;
+      }
+      .timer-progress-ring {
+        width: 180px;
+        height: 180px;
+      }
+      .question-text {
+        font-size: 18px;
+      }
+      .question-card {
+        padding: 24px 20px;
+        min-height: 140px;
+      }
+    }
+
+    @supports (padding: max(0px)) {
+      .container {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- 首页 -->
+    <div class="page active" id="page-home">
+      <div class="home-header">
+        <div class="home-title">
+          阿伦36问
+          <span>让彼此更靠近</span>
+        </div>
+      </div>
+      <p class="home-subtitle">由心理学家亚瑟·阿伦 (Arthur Aron) 设计的人际亲密关系实验。</p>
+
+      <div class="home-instruction">
+        <div class="input-group">
+          <label>参与者 A（可选）</label>
+          <input type="text" id="nameA" placeholder="输入昵称" maxlength="10">
+        </div>
+        <div class="input-group">
+          <label>参与者 B（可选）</label>
+          <input type="text" id="nameB" placeholder="输入昵称" maxlength="10">
+        </div>
+      </div>
+
+      <button class="btn-primary btn-full" onclick="startApp()">开始体验</button>
+
+      <div class="home-footer-note">
+        <h3>使用说明</h3>
+        <ol>
+          <li>两人面对面坐好，保持舒适的距离</li>
+          <li>题目由双方交替提问，但每题两人都需回答</li>
+          <li>回答时请看着对方的眼睛，真诚表达</li>
+          <li>完成36题后，进行4分钟对视</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- 第1组引导页 -->
+    <div class="page level-intro-page" id="page-level1">
+      <div class="level-intro-emoji">☕️</div>
+      <div class="level-intro-title">初识</div>
+      <div class="level-intro-subtitle">破冰之旅</div>
+      <div class="level-intro-count">第 1 组 · 共 12 题</div>
+      <p class="level-intro-desc">
+        从轻松的日常话题开始，<br>
+        慢慢打开彼此的心扉。
+      </p>
+      <button class="btn-primary" onclick="showPage('page-qa'); renderQA();">开始第一组</button>
+    </div>
+
+    <!-- 第2组引导页 -->
+    <div class="page level-intro-page" id="page-level2">
+      <div class="level-intro-emoji">💬</div>
+      <div class="level-intro-title">深入</div>
+      <div class="level-intro-subtitle">敞开心扉</div>
+      <div class="level-intro-count">第 2 组 · 共 12 题</div>
+      <p class="level-intro-desc">
+        分享更深层的想法与感受，<br>
+        看见彼此更真实的一面。
+      </p>
+      <button class="btn-primary" onclick="showPage('page-qa'); renderQA();">开始第二组</button>
+    </div>
+
+    <!-- 第3组引导页 -->
+    <div class="page level-intro-page" id="page-level3">
+      <div class="level-intro-emoji">❤️</div>
+      <div class="level-intro-title">连接</div>
+      <div class="level-intro-subtitle">真诚相拥</div>
+      <div class="level-intro-count">第 3 组 · 共 12 题</div>
+      <p class="level-intro-desc">
+        坦诚相待，建立最真挚的连接。<br>
+        这是通往亲密关系的关键一步。
+      </p>
+      <button class="btn-primary" onclick="showPage('page-qa'); renderQA();">开始第三组</button>
+    </div>
+
+    <!-- 答题页 -->
+    <div class="page" id="page-qa">
+      <div class="qa-header">
+        <div class="qa-header-left">
+          <span class="qa-counter" id="qaCounter">1/36</span>
+          <span class="qa-group-tag" id="qaGroupTag">第1组</span>
+        </div>
+        <div class="qa-header-right">两人轮流回答同一问题</div>
+      </div>
+      <div class="progress-line">
+        <div class="progress-line-fill" id="progressFill" style="width: 2.8%"></div>
+      </div>
+
+      <div class="status-bar" id="statusBar">
+        <div class="status-pill active" id="statusA">
+          <span class="status-emoji">&#128512;</span>
+          <span id="labelA">A 回答了</span>
+        </div>
+        <div class="status-pill waiting" id="statusB">
+          <span class="status-emoji">&#128528;</span>
+          <span id="labelB">B 等待中</span>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-text" id="questionText">问题加载中...</div>
+      </div>
+
+      <div class="qa-hint" id="qaHint">请认真思考后真诚回答</div>
+
+      <div class="qa-actions">
+        <button class="btn-primary btn-full" id="nextBtn" onclick="nextStep()">
+          我已答完（轮到 B）
+        </button>
+      </div>
+    </div>
+
+    <!-- 过渡页 -->
+    <div class="page" id="page-transition">
+      <div class="transition-icon">&#128522;</div>
+      <div class="transition-title">恭喜你们</div>
+      <p class="transition-desc">
+        已经完成了全部 36 个问题。<br>
+        现在，进入最后一个重要环节。
+      </p>
+      <div class="transition-tips">
+        <h4>&#9200; 4 分钟对视</h4>
+        <p>
+          请找到舒适的姿势，面对面坐好。<br>
+          互相凝视对方的眼睛，保持 4 分钟。<br>
+          不要说话，保持眼神接触。
+        </p>
+      </div>
+      <button class="btn-primary btn-full" onclick="startTimer()">开始 4 分钟对视</button>
+    </div>
+
+    <!-- 倒计时页 -->
+    <div class="page" id="page-timer">
+      <div class="timer-label">请保持眼神接触</div>
+      <div class="timer-progress-ring">
+        <svg viewBox="0 0 200 200">
+          <circle class="bg" cx="100" cy="100" r="90"></circle>
+          <circle class="fill" id="progressCircle" cx="100" cy="100" r="90"
+            stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+        </svg>
+      </div>
+      <div class="timer-display" id="timerDisplay">04:00</div>
+      <div class="timer-prompt" id="timerPrompt">放松，深呼吸</div>
+      <div class="timer-controls">
+        <button class="btn-secondary" id="pauseBtn" onclick="togglePause()">暂停</button>
+        <button class="btn-secondary" onclick="skipTimer()">跳过</button>
+      </div>
+    </div>
+
+    <!-- 完成页 -->
+    <div class="page" id="page-complete">
+      <div class="complete-icon">🎉</div>
+      <div class="complete-title">恭喜完成！</div>
+      <p class="complete-subtitle">你们完成了亚瑟·阿伦的亲密关系实验</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">💬</div>
+          <div class="stat-number">36</div>
+          <div class="stat-label">个问题</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⏱️</div>
+          <div class="stat-number">4</div>
+          <div class="stat-label">分钟对视</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🔗</div>
+          <div class="stat-number">∞</div>
+          <div class="stat-label">更深连接</div>
+        </div>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-text">
+          "自我表露是建立亲密关系的基础。当我们向他人展示真实的自我时，我们也在邀请他们展示真实的自我。"
+        </div>
+        <div class="quote-author">—— 亚瑟·阿伦 (Arthur Aron)</div>
+      </div>
+
+      <textarea class="feeling-input" id="feelingInput" rows="3" placeholder="记录下此刻的感受（可选）..."></textarea>
+
+      <div style="display:flex;gap:12px;width:100%;max-width:400px;">
+        <button class="btn-secondary" style="flex:1;" onclick="saveFeeling()">保存感受</button>
+        <button class="btn-primary" style="flex:2;" onclick="restartApp()">重新开始</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ===== 数据 =====
+    const questions = [
+      { id: 1, level: 1, content: "如果可以跟世上任何人共进晚餐，你会选择谁？" },
+      { id: 2, level: 1, content: "你想出名吗？以什么方式出名？" },
+      { id: 3, level: 1, content: "打电话前，你会预演要说的话吗？为什么？" },
+      { id: 4, level: 1, content: "对你来说，\"完美\"的一天是什么样的？" },
+      { id: 5, level: 1, content: "上一次唱歌给自己听是什么时候？唱给别人听呢？" },
+      { id: 6, level: 1, content: "如果能活到90岁，并选择让心智或身体在60岁时保持30岁的状态，你会选哪个？" },
+      { id: 7, level: 1, content: "你是否曾秘密预感过自己会怎样死去？" },
+      { id: 8, level: 1, content: "说出三个你和对方的共同特质。" },
+      { id: 9, level: 1, content: "你人生中最感激什么？" },
+      { id: 10, level: 1, content: "如果能改变成长过程中的任何事，你会改变什么？" },
+      { id: 11, level: 1, content: "用4分钟时间，尽可能详细地讲述你的人生故事。" },
+      { id: 12, level: 1, content: "如果明天醒来能获得某种能力或特质，你希望是什么？" },
+      { id: 13, level: 2, content: "如果水晶球能告诉你关于自己、人生或未来的任何事，你想知道什么？" },
+      { id: 14, level: 2, content: "有什么想做的事，但一直没做？为什么？" },
+      { id: 15, level: 2, content: "你人生中最大的成就是什么？" },
+      { id: 16, level: 2, content: "友谊中你最珍视什么？" },
+      { id: 17, level: 2, content: "你最珍贵的回忆是什么？" },
+      { id: 18, level: 2, content: "你最糟糕的回忆是什么？" },
+      { id: 19, level: 2, content: "如果知道自己将在一年内突然死去，会改变现在的生活方式吗？为什么？" },
+      { id: 20, level: 2, content: "友谊对你而言意味着什么？" },
+      { id: 21, level: 2, content: "爱与感情在你生命中扮演什么角色？" },
+      { id: 22, level: 2, content: "轮流说出你认为对方拥有的5项优点" },
+      { id: 23, level: 2, content: "你的家庭关系亲密温暖吗？你的童年比大部分人都快乐吗？" },
+      { id: 24, level: 2, content: "你与母亲的关系如何？" },
+      { id: 25, level: 3, content: "用\"我们\"造三个符合实际情况的句子，如\"我们都在这个房间里\"。" },
+      { id: 26, level: 3, content: "我希望能有一个人，可以与他（她）分享______。" },
+      { id: 27, level: 3, content: "如果你们即将成为亲密朋友，请告诉对方哪些关于你的事情是他（她）必须知道的。" },
+      { id: 28, level: 3, content: "告诉对方你喜欢他/她的什么地方，要非常诚实。" },
+      { id: 29, level: 3, content: "和对方分享你人生中尴尬的时刻。" },
+      { id: 30, level: 3, content: "上次在别人面前哭是什么时候？自己哭呢？" },
+      { id: 31, level: 3, content: "告诉对方，你现在喜欢他/她什么地方。" },
+      { id: 32, level: 3, content: "有什么事是绝对不能开玩笑的？" },
+      { id: 33, level: 3, content: "如果今晚会死且无法联系任何人，你最后悔没告诉别人什么事？为什么没说？" },
+      { id: 34, level: 3, content: "房子着火，救出亲人宠物后，还有时间安全抢救最后一样东西，你会拿什么？为什么？" },
+      { id: 35, level: 3, content: "在所有家人中，谁的死对你打击最大？为什么？" },
+      { id: 36, level: 3, content: "分享一个你当前面临的个人问题，请对方给出建议；随后请对方描述，他认为你对这个问题真正的感受是什么。" }
+    ];
+
+    const levelTitles = { 1: '第1组', 2: '第2组', 3: '第3组' };
+    const levelNames = { 1: '初识 · 破冰之旅', 2: '深入 · 敞开心扉', 3: '连接 · 真诚相拥' };
+
+    // ===== 状态 =====
+    let appState = {
+      currentQuestion: 1,
+      answerPhase: 0, // 0 = 第一人回答, 1 = 第二人回答
+      participants: { A: 'A', B: 'B' }
+    };
+
+    let timerInterval = null;
+    let timerRemaining = 240;
+    let isPaused = false;
+
+    // ===== 页面切换 =====
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+
+    // ===== 开始应用 =====
+    function startApp() {
+      const nameA = document.getElementById('nameA').value.trim();
+      const nameB = document.getElementById('nameB').value.trim();
+      if (nameA) appState.participants.A = nameA;
+      if (nameB) appState.participants.B = nameB;
+
+      appState.currentQuestion = 1;
+      appState.answerPhase = 0;
+
+      showPage('page-level1');
+    }
+
+    // ===== 获取当前回答者 =====
+    function getCurrentAnswerer() {
+      // 第n题的第一人：奇数题A先，偶数题B先
+      const first = (appState.currentQuestion % 2 === 1) ? 'A' : 'B';
+      return appState.answerPhase === 0 ? first : (first === 'A' ? 'B' : 'A');
+    }
+
+    // ===== 获取等待者 =====
+    function getWaitingPerson() {
+      const current = getCurrentAnswerer();
+      return current === 'A' ? 'B' : 'A';
+    }
+
+    // ===== 渲染答题页 =====
+    function renderQA() {
+      const q = questions[appState.currentQuestion - 1];
+      const current = getCurrentAnswerer();
+      const waiting = getWaitingPerson();
+
+      document.getElementById('qaCounter').textContent = appState.currentQuestion + '/36';
+      document.getElementById('qaGroupTag').textContent = levelTitles[q.level];
+      document.getElementById('progressFill').style.width = ((appState.currentQuestion / 36) * 100) + '%';
+      document.getElementById('questionText').textContent = q.content;
+
+      // 状态条
+      const statusA = document.getElementById('statusA');
+      const statusB = document.getElementById('statusB');
+      const labelA = document.getElementById('labelA');
+      const labelB = document.getElementById('labelB');
+
+      labelA.textContent = appState.participants.A + (current === 'A' ? ' 回答了' : ' 等待中');
+      labelB.textContent = appState.participants.B + (current === 'B' ? ' 回答了' : ' 等待中');
+
+      if (current === 'A') {
+        statusA.className = 'status-pill active';
+        statusB.className = 'status-pill waiting';
+      } else {
+        statusA.className = 'status-pill waiting';
+        statusB.className = 'status-pill active';
+      }
+
+      // 按钮文案
+      const nextBtn = document.getElementById('nextBtn');
+      if (appState.answerPhase === 0) {
+        // 第一人答完，轮到第二人
+        nextBtn.textContent = '我已答完（轮到 ' + appState.participants[waiting] + '）';
+      } else {
+        // 第二人答完
+        if (appState.currentQuestion === 36) {
+          nextBtn.textContent = '完成全部问题';
+        } else {
+          nextBtn.textContent = '我已答完（下一题）';
+        }
+      }
+
+      // 提示语
+      document.getElementById('qaHint').textContent =
+        '轮到 ' + appState.participants[current] + ' 回答，请看着对方真诚表达';
+    }
+
+    // ===== 下一步 =====
+    function nextStep() {
+      if (appState.answerPhase === 0) {
+        // 第一人答完，切换到第二人
+        appState.answerPhase = 1;
+        renderQA();
+      } else {
+        // 第二人答完，进入下一题
+        appState.answerPhase = 0;
+        appState.currentQuestion++;
+
+        if (appState.currentQuestion === 13) {
+          showPage('page-level2');
+          return;
+        }
+        if (appState.currentQuestion === 25) {
+          showPage('page-level3');
+          return;
+        }
+        if (appState.currentQuestion > 36) {
+          showPage('page-transition');
+          return;
+        }
+
+        renderQA();
+      }
+    }
+
+    // ===== 倒计时 =====
+    function startTimer() {
+      showPage('page-timer');
+      timerRemaining = 240;
+      isPaused = false;
+      document.getElementById('pauseBtn').textContent = '暂停';
+      updateTimerDisplay();
+
+      timerInterval = setInterval(function() {
+        if (!isPaused) {
+          timerRemaining--;
+          updateTimerDisplay();
+          if (timerRemaining <= 0) {
+            clearInterval(timerInterval);
+            playCompletionSound();
+            setTimeout(function() {
+              showPage('page-complete');
+            }, 500);
+          }
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      var minutes = Math.floor(timerRemaining / 60);
+      var seconds = timerRemaining % 60;
+      document.getElementById('timerDisplay').textContent =
+        String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+
+      var progress = (240 - timerRemaining) / 240;
+      var circumference = 2 * Math.PI * 90;
+      var offset = circumference * (1 - progress);
+      document.getElementById('progressCircle').style.strokeDashoffset = offset;
+
+      var prompt = '';
+      if (timerRemaining > 180) prompt = '放松，深呼吸';
+      else if (timerRemaining > 120) prompt = '保持眼神接触，不要移开视线';
+      else if (timerRemaining > 60) prompt = '你可能感到不适，这是正常的';
+      else if (timerRemaining > 0) prompt = '坚持住，最后冲刺';
+      document.getElementById('timerPrompt').textContent = prompt;
+    }
+
+    function togglePause() {
+      isPaused = !isPaused;
+      document.getElementById('pauseBtn').textContent = isPaused ? '继续' : '暂停';
+    }
+
+    function skipTimer() {
+      if (confirm('确定要跳过对视环节吗？')) {
+        clearInterval(timerInterval);
+        showPage('page-complete');
+      }
+    }
+
+    // ===== 提示音 =====
+    function playCompletionSound() {
+      try {
+        var AudioContext = window.AudioContext || window.webkitAudioContext;
+        var ctx = new AudioContext();
+        var notes = [523.25, 659.25, 783.99, 1046.5];
+        notes.forEach(function(freq, i) {
+          var osc = ctx.createOscillator();
+          var gain = ctx.createGain();
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.frequency.value = freq;
+          osc.type = 'sine';
+          gain.gain.setValueAtTime(0.15, ctx.currentTime + i * 0.15);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.15 + 0.6);
+          osc.start(ctx.currentTime + i * 0.15);
+          osc.stop(ctx.currentTime + i * 0.15 + 0.6);
+        });
+      } catch (e) {
+        console.log('Sound play failed');
+      }
+    }
+
+    // ===== 完成页 =====
+    function saveFeeling() {
+      var feeling = document.getElementById('feelingInput').value.trim();
+      if (feeling) {
+        localStorage.setItem('36q_feeling', feeling);
+        alert('感受已保存');
+      }
+    }
+
+    function restartApp() {
+      appState.currentQuestion = 1;
+      appState.answerPhase = 0;
+      document.getElementById('nameA').value = '';
+      document.getElementById('nameB').value = '';
+      document.getElementById('feelingInput').value = '';
+      showPage('page-home');
+    }
+
+    // ===== 页面加载检查 =====
+    window.onload = function() {
+      // 无需自动恢复，每次从头开始
+    };
+  </script>
+</body>
+</html>
